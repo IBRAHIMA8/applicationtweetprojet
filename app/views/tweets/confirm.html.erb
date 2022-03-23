@@ -1,0 +1,8 @@
+<h3>Aimeriez-vous publier ce tweet ?</h3>
+
+ <%= form_with(model: @tweet, url: tweets_path, local: true) do |form| %>
+ <%= form.hidden_field :content %>
+ <p><%= @tweet_content %></p>
+ <%= form.submit "PUBLIER" %>
+ <%= form.submit "RETOUR", name: 'Back' %>
+<% end %>
