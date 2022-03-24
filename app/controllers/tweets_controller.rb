@@ -1,13 +1,9 @@
 class TweetsController < ApplicationController
 before_action :set_tweet, only: [:show, :edit, :update, :destroy]
 
-
-
-
   def index
       @tweets = Tweet.all.order(id: "desc")
   end
-
 
   def new
     @tweet = Tweet.new
@@ -26,17 +22,13 @@ before_action :set_tweet, only: [:show, :edit, :update, :destroy]
     end
   end
 
-
   def show
-  #@tweet= Tweet.find(params[:id])
-  end
 
+  end
 
   def edit
-  #@tweet= Tweet.find(params[:id])
+
   end
-
-
 
   def update
     if @tweet.update(tweet_params)
@@ -46,22 +38,19 @@ before_action :set_tweet, only: [:show, :edit, :update, :destroy]
     end
   end
 
-
   def destroy
          @tweet.destroy
          redirect_to tweets_path, notice:"Vous avez supprimé un Tweet！"
-     end
+  end
 
+  def confirm
+      @tweet = Tweet.new(tweet_params)
+  end
 
-     def confirm
-          @tweet = Tweet.new(tweet_params)
-        end
-
-
-     def confirm
-         @tweet= Tweet.new(tweet_params)
-        render :new if @tweet.invalid?
-     end
+  def confirm
+      @tweet= Tweet.new(tweet_params)
+      render :new if @tweet.invalid?
+  end
 
      private
 
@@ -69,9 +58,9 @@ before_action :set_tweet, only: [:show, :edit, :update, :destroy]
        params.require(:tweet).permit(:content)
      end
 
-   def set_tweet
+     def set_tweet
      @tweet = Tweet.find(params[:id])
-   end
+     end
 
 
 end
