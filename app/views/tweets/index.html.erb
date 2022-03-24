@@ -3,49 +3,29 @@
   <%= image_tag "Twit.png", size: '350x80' %>
   <span class="now">LA PAGE D'ACCUEIL DE MON TWITTER_CLONE (TWITTER A VOTRE PLAISIR)</span>
 </div>
-
 <div class="bold_border"></div>
-
 <h1>LISTE DE MES TWEETS</h1>
-
 <p><%= notice %></p>
-
-
     <% @tweets.each do |tweet| %>
-
-
       <table>
         <tr>
           <td class="img">
             <%= image_tag "Mon_profil_twitter.jpg", size: '15x15', class: "acc_pic" %>
           </td>
           <td class="name_and_content">
-        <span class="acc_name">Voici mon profil twitter</span>
-</td>
+           <span class="acc_name">Voici mon profil twitter</span>
+          </td>
 
-</tr>
-          </table>
-
+        </tr>
+       </table>
 <br><br>
-              <table>
-  <tr>
-    <td class="main_tweet"><%= tweet.content %></td>
-
-
-
-
-        <td>    <%= link_to "Modifier le tweet", edit_tweet_path(tweet.id), data: { confirm: 'Voulez vous vraiment le modifier？' } %> </td>
-
-
-
-          <td><%= link_to "Supprimer le tweet", tweet_path(tweet.id), method: :delete ,data: { confirm: 'Voulez vous vraiment le supprimer？' } %></td>
-
-  </tr>
-  </table>
+       <table>
+        <tr>
+         <td class="main_tweet"><%= tweet.content %></td>
+         <td>    <%= link_to "Modifier le tweet", edit_tweet_path(tweet.id), data: { confirm: 'Voulez vous vraiment le modifier？' } %> </td>
+         <td><%= link_to "Supprimer le tweet", tweet_path(tweet.id), method: :delete ,data: { confirm: 'Voulez vous vraiment le supprimer？' } %></td>
+        </tr>
+       </table>
 <br><br>
-
 <% end %>
-
-
-
     <%= link_to 'Cliquer ici pour ajouter de nouveau tweet', new_tweet_path %>

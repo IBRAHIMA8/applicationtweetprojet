@@ -52,15 +52,14 @@ before_action :set_tweet, only: [:show, :edit, :update, :destroy]
       render :new if @tweet.invalid?
   end
 
-     private
+  private
 
-     def tweet_params
-       params.require(:tweet).permit(:content)
-     end
+  def tweet_params
+    params.require(:tweet).permit(:content)
+  end
 
-     def set_tweet
-     @tweet = Tweet.find(params[:id])
-     end
-
+  def set_tweet
+    @tweet = Tweet.find(params[:id])
+  end
 
 end
